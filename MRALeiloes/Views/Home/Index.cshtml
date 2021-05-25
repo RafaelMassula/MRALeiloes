@@ -1,0 +1,27 @@
+﻿@model MRALeiloes.Models.Lance
+@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+    if(TempData["MessageErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["MessageErro"]
+        </div>
+    }
+}
+<div class="text-center">
+    <h1 class="display-4">Bem vindo ao MRA_Leilões</h1>
+    <form asp-action="ReceberLance" method="POST">
+        <label>Dar Lance</label>
+        <input asp-for="Participante.Nome" />
+        <input placeholder="R$ 000,00" asp-for="Valor" />
+        <input type="submit" value="Dar Lance" style="background-color:green" />
+    </form>
+</div>
